@@ -1,10 +1,10 @@
 <template>
-  <div class="nav">
+  <div class="navi">
 <h1>Questions App</h1>
     <ul>
       
-      <li>Home</li>
-      <li>About</li>
+      <router-link to="/askq"><a>AskQ</a></router-link>
+      <router-link to="/"><a>Questions</a></router-link>
     </ul>
 
   </div>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'nav',
+  name: 'navi',
   props: {
   }
 }
@@ -20,7 +20,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.nav {
+.navi {
   width: 100%;
   background-color: #2c3e50;
   top: 0;
@@ -41,14 +41,14 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-li {
+a {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
   color: #42b983;
   display: inline-block;
   padding:  0px 20px;
 }
-li:hover {
+a:hover {
   cursor: pointer;
   text-decoration: underline;
 }

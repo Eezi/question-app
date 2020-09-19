@@ -1,22 +1,20 @@
 <template>
   <div id="app">
     
-    <Nav />
+    <Navi />
+    <router-view></router-view>
 
-    <Chat/>
     <div v-bind:key="que.id" v-for="que in questions">{{que}}</div>
     <button @click="log(questions)">Mikä</button>
   </div>
 </template>
 
 <script>
-import Nav from './components/Nav.vue'
-import Chat from './components/Chat.vue'
+import Navi from './components/layouts/Nav.vue'
 export default {
   name: 'App',
   components: {
-    Nav,
-    Chat
+    Navi,
   },
   methods: {
     log(e){
