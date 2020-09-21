@@ -6,9 +6,14 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: App
+  },
+  {
+    path: '/questions',
+    name: 'Questions',
+    component: () => import('../components/Questions.vue')
   },
   {
     path: '/askq',

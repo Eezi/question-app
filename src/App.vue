@@ -1,11 +1,7 @@
 <template>
   <div id="app">
-    
     <Navi />
     <router-view></router-view>
-
-    <div v-bind:key="que.id" v-for="que in questions">{{que}}</div>
-    <button @click="log(questions)">Mikä</button>
   </div>
 </template>
 
@@ -24,7 +20,7 @@ export default {
       console.log('wud?', this.questions)
     },
   },
-  props:['questions']
+  
 
 }
 </script>
@@ -34,8 +30,9 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+ 
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>

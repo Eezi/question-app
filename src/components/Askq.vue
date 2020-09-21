@@ -1,7 +1,8 @@
 <template>
   <div>
     <form @submit="handleQuestion">
-        <textarea value="question" v-model="question" rows="10" cols="30">Type your question here.</textarea>
+       <h5> Type your question here.</h5>
+        <textarea value="question" v-model="question" rows="10" cols="30"></textarea>
         <br><br>
         <input @click="handleQuestion" type="submit">
     </form>
@@ -10,30 +11,38 @@
 </template>
 
 <script>
+//import QuestionCard from './QuestionCard.vue'
 export default {
+    name: "askq",
     data() {
     return{
         questions: [],
-        question: ''
+        question: '',
+        wholeQuestion: {}
     }
     },
     methods: {
         handleQuestion(e) {
             e.preventDefault();
             const newQ = {
-                question: this.question,
-                id: this.questions.length + 1
+                title: this.question,
+                id: this.questions.length + 1,
+                createdAt: new Date()
             }
-            this.questions.push(newQ);
-            console.log('kyssäri', this.questions)
-            this.$emit('questions', this.questions)
+            console.log(newQ)
+            this.$emit('add-item', newQ)
             this.question = '';
         }
+    },
+    components: {
+        
     }
 
 }
 </script>
 
 <style>
-
+form{
+    text-align: center;
+}
 </style>

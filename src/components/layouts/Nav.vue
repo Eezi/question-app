@@ -2,9 +2,8 @@
   <div class="navi">
 <h1>Questions App</h1>
     <ul>
-      
-      <router-link to="/askq"><a>AskQ</a></router-link>
-      <router-link to="/"><a>Questions</a></router-link>
+      <router-link to="/askq"><a>Create Question</a></router-link>
+      <router-link to="/questions"><a>Questions</a></router-link>
     </ul>
 
   </div>
