@@ -1,20 +1,17 @@
 <template>
+<div class="container">
   <div class="questions">
       <h1>Sended Questions</h1>
-      
-      <div>
-        <div>
-            <Askq v-on:add-item="addQuestion" />
-            <QuestionCard  />
-
-        </div>
-    </div>  
-      <button @click="log">mikä</button>
+      <ul :key="que.id" v-for="que in questions">
+           <li @click="deleteQuestion(que.id)">{{que.title}}</li>
+      </ul>   
   </div>
+   <Askq v-on:add-item="addQuestion" />
+</div> 
 </template>
 
 <script>
-import QuestionCard from './QuestionCard.vue'
+//import QuestionCard from './QuestionCard.vue'
 
 import Askq from './Askq.vue'
 export default {
@@ -24,7 +21,7 @@ export default {
         }
     },
     components: {
-        QuestionCard,
+      //  QuestionCard,
         Askq
     },
     props: ['newQ'],
@@ -32,9 +29,11 @@ export default {
     addQuestion(newQ) {
         this.questions.push(newQ)
     },
-    log(){
-        console.log(this.questions)
+    deleteQuestion(index) {
+        console.log(index)
+        this.questions.splice(index, 1);
     }
+    
     }
 }
 
@@ -44,10 +43,13 @@ export default {
 .questions{
     
   
-  margin-top: 50px;
+  margin-top: 0px;
   background-color: #2c3e50;
-  color: #fff;
-  height: 100px;
+  color: rgb(9, 240, 113);
+  width: 100%;
 
+}
+.container{
+    display: flex;
 }
 </style>

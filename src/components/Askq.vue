@@ -26,7 +26,7 @@ export default {
             e.preventDefault();
             const newQ = {
                 title: this.question,
-                id: this.questions.length + 1,
+                id: Date.now(),
                 createdAt: new Date()
             }
             console.log(newQ)
