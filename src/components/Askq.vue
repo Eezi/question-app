@@ -22,11 +22,19 @@ export default {
     }
     },
     methods: {
-        handleQuestion(e) {
+       async handleQuestion(e) {
             e.preventDefault();
+            axios.post(`http://localhost:9999/api/v1/faqs/`, {
+        body: this.postBody
+        })
+        .then(response => {
+
+        })
+        .catch(e => {
+        this.errors.push(e)
+        })
             const newQ = {
                 title: this.question,
-                id: Date.now(),
                 createdAt: new Date()
             }
             console.log(newQ)

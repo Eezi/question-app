@@ -2,8 +2,9 @@
 <div class="container">
   <div class="questions">
       <h1>Sended Questions</h1>
-      <ul :key="que.id" v-for="que in questions">
-           <li @click="deleteQuestion(que.id)">{{que.title}}</li>
+      <ul :key="que.id" v-for="que in this.questions">
+           <label>{{que.question}}</label>
+           <li @click="deleteQuestion(que.id)">{{que.answer}}</li>
       </ul>   
   </div>
    <Askq v-on:add-item="addQuestion" />
@@ -12,18 +13,29 @@
 
 <script>
 //import QuestionCard from './QuestionCard.vue'
-
+import axios from 'axios'
 import Askq from './Askq.vue'
 export default {
     data(){
         return{
-            questions: []
+           questions: {}
         }
     },
     components: {
       //  QuestionCard,
         Askq
     },
+    mounted () {
+    axios
+      .get('http://localhost:9999/api/v1/faqs/')
+      .then((res) => {
+          console.log('res', res.data)
+          this.questions = res.data;
+          console.log('wud', this.questions)
+      })
+  },
+
+
     props: ['newQ'],
     methods: {
     addQuestion(newQ) {
@@ -32,10 +44,10 @@ export default {
     deleteQuestion(index) {
         console.log(index)
         this.questions.splice(index, 1);
-    }
-    
+    },
     }
 }
+
 
 </script>
 
